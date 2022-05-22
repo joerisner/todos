@@ -1,6 +1,6 @@
 # todos
 
-Simple todos app in Rails using Hotwire, Turbo, Stimulus, and Tailwind as a CSS processor
+Simple todos app in Rails using Hotwire, Turbo, and Tailwind as a CSS processor - without the need for a single line of custom JavaScript.
 
 # Getting started
 
