@@ -1,5 +1,14 @@
 <%= form_with(model: todo, id: "#{dom_id(todo)}_form") do |form| %>
-  <!-- TODO: Add error messaging for a todo w/ errors -->
   <%= form.label :title, class: 'text-white sr-only' %>
   <%= form.text_field :title, class: "block rounded-md border border-gray-200 outline-none px-3 py-3 w-full placeholder-gray-400 placeholder:italic text-2xl text-black", placeholder: 'What needs to be done?' %>
+  
+  <% if todo.errors.any? %>
+    <div id="errors_container" class="px-3 py-1 text-red-500 italic">
+      <ul>
+        <% todo.errors.each do |e| %>
+          <li class="error-message"><%= e.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 <% end %>

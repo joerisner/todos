@@ -5,3 +5,7 @@
 body {
   background-color: #1b1b1b !important;
 }
+
+.error-message {
+  font-size: 18px !important;
+}

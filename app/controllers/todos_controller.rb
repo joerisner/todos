@@ -1,5 +1,5 @@
 class TodosController < ApplicationController
-  before_action :set_todo, only: %i[ show edit update destroy ]
+  before_action :set_todo, only: %i[ edit update destroy ]
 
   def index
     @todos = Todo.all
@@ -8,18 +8,14 @@ class TodosController < ApplicationController
   def edit
   end
 
-  def show
-  end
-
   def create
     @todo = Todo.new(todo_params)
 
     respond_to do |format|
       if @todo.save
         format.turbo_stream
-        format.html { redirect_to todo_url(@todo), notice: "Todo was successfully created." }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.turbo_stream { render turbo_stream: error_state_turbo_stream }
       end
     end
   end
@@ -28,9 +24,8 @@ class TodosController < ApplicationController
     respond_to do |format|
       if @todo.update(todo_params)
         format.turbo_stream
-        format.html { redirect_to todo_url(@todo), notice: "Todo was successfully updated." }
       else
-        format.html { render :edit, status: :unprocessable_entity }
+        format.turbo_stream { render turbo_stream: error_state_turbo_stream }
       end
     end
   end
@@ -51,5 +46,9 @@ class TodosController < ApplicationController
 
     def todo_params
       params.require(:todo).permit(:title, :status)
+    end
+
+    def error_state_turbo_stream
+      turbo_stream.replace("#{helpers.dom_id(@todo)}_form", partial: 'form', locals: { todo: @todo })
     end
 end
