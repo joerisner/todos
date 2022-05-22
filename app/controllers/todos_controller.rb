@@ -5,14 +5,10 @@ class TodosController < ApplicationController
     @todos = Todo.all
   end
 
-  def show
-  end
-
-  def new
-    @todo = Todo.new
-  end
-
   def edit
+  end
+
+  def show
   end
 
   def create
@@ -20,11 +16,10 @@ class TodosController < ApplicationController
 
     respond_to do |format|
       if @todo.save
+        format.turbo_stream
         format.html { redirect_to todo_url(@todo), notice: "Todo was successfully created." }
-        format.json { render :show, status: :created, location: @todo }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @todo.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -32,11 +27,10 @@ class TodosController < ApplicationController
   def update
     respond_to do |format|
       if @todo.update(todo_params)
+        format.turbo_stream
         format.html { redirect_to todo_url(@todo), notice: "Todo was successfully updated." }
-        format.json { render :show, status: :ok, location: @todo }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @todo.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -46,7 +40,6 @@ class TodosController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to todos_url, notice: "Todo was successfully destroyed." }
-      format.json { head :no_content }
     end
   end
 

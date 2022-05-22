@@ -1,0 +1,9 @@
+<!-- Append new todo to <ul> w/ id todo_list -->
+<%= turbo_stream.append 'todo_list' do %>
+  <%= render 'todo', todo: @todo %>
+<% end %>
+
+<!-- Clears the form with id new_todo_form by replacing it w/ a fresh copy -->
+<%= turbo_stream.replace "#{dom_id(Todo.new)}_form" do %>
+  <%= render 'form', todo: Todo.new %>
+<% end %>
