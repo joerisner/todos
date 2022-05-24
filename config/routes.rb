@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
   root 'todos#index'
-  resources :todos, only: [:index, :edit, :create, :update, :destroy]
+  resources :todos, except: [:new, :show]
 end
