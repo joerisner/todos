@@ -11,9 +11,14 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <main class="container mx-auto px-5">
+  <body class="flex flex-col min-h-screen">
+    <main class="container mx-auto px-5 flex-grow">
       <%= yield %>
     </main>
+    <footer class="py-3">
+      <div>
+        <p class="text-gray-400 text-center text-xs">Created by <%= link_to 'Joe Risner', 'https://github.com/joerisner', class: 'text-white' %></p>
+      </div>
+    </footer>
   </body>
 </html>
