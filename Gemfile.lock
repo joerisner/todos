@@ -70,11 +70,9 @@ GEM
     bootsnap (1.11.1)
       msgpack (~> 1.2)
     builder (3.2.4)
+    byebug (11.1.3)
     concurrent-ruby (1.1.10)
     crass (1.0.6)
-    debug (1.5.0)
-      irb (>= 1.3.6)
-      reline (>= 0.2.7)
     digest (3.1.0)
     erubi (1.10.0)
     foreman (0.87.2)
@@ -85,9 +83,6 @@ GEM
     importmap-rails (1.0.3)
       actionpack (>= 6.0.0)
       railties (>= 6.0.0)
-    io-console (0.5.11)
-    irb (1.4.1)
-      reline (>= 0.3.0)
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
@@ -118,6 +113,7 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.13.6-x86_64-darwin)
       racc (~> 1.4)
+    pg (1.3.5)
     puma (5.6.4)
       nio4r (~> 2.0)
     racc (1.6.0)
@@ -151,8 +147,6 @@ GEM
       thor (~> 1.0)
       zeitwerk (~> 2.5)
     rake (13.0.6)
-    reline (0.3.1)
-      io-console (~> 0.5)
     sprockets (4.0.3)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
@@ -160,7 +154,6 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
-    sqlite3 (1.4.2)
     stimulus-rails (1.0.4)
       railties (>= 6.0.0)
     strscan (3.0.3)
@@ -188,14 +181,14 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap
-  debug
+  byebug
   foreman
   importmap-rails
   jbuilder
+  pg
   puma (~> 5.0)
   rails (~> 7.0.3)
   sprockets-rails
-  sqlite3 (~> 1.4)
   stimulus-rails
   tailwindcss-rails
   turbo-rails
