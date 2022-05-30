@@ -1,0 +1,8 @@
+# More on fixture files here: https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+incomplete:
+  status: incomplete
+  title: Inaction is the holiday of fools who trade temporary discomfort for long-term, existential suffering.
+
+complete:
+  status: complete
+  title: Surely there is still something else to be done?

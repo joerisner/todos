@@ -2,6 +2,7 @@
 /.bundle
 
 # Ignore all logfiles and tempfiles.
+.byebug_history
 /log/*
 /tmp/*
 !/log/.keep
